@@ -1,10 +1,7 @@
-// news.js
-
 document.addEventListener('DOMContentLoaded', () => {
     const newsList = document.getElementById('newsList');
     const loadingIndicator = document.getElementById('loadingIndicator');
 
-    // Функция для отображения новости
     function displayNews(newsData) {
         const newsItem = document.createElement('div');
         newsItem.classList.add('news-item');
@@ -15,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const date = document.createElement('div');
         date.classList.add('news-date');
-        date.textContent = newsData.date; //  Предполагается, что у вас есть дата в данных
+        date.textContent = newsData.date;
         newsItem.appendChild(date);
 
         const content = document.createElement('p');
@@ -25,13 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
         newsList.appendChild(newsItem);
     }
 
-
-    // Функция для загрузки новостей (имитация)
     async function loadNews() {
-        //  Уберите индикатор загрузки
         loadingIndicator.style.display = 'none';
-        //  Замените этот код на получение данных новостей из вашего API или файла
-        //  В Unreal Engine, вы, вероятно, будете получать эти данные из C++ через JavaScript интерфейс
+
         const newsData = [
             {
                 title: "Обновление 1.2 Вышло!",
@@ -50,17 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         ];
 
-        //  Показываем новости
         newsData.forEach(news => {
             displayNews(news);
         });
     }
 
-    //  Загрузка новостей при загрузке страницы
     loadNews();
-
-
-    //  В реальном проекте, если у вас есть обновление новостей, вы можете
-    //  добавить функцию для периодической проверки обновлений или
-    //  получать уведомления об обновлениях из вашего backend-а (через C++ в UE).
 });
