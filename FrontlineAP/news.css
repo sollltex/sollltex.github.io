@@ -4,9 +4,10 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Центрируем по горизонтали (если нужно) */
+    align-items: flex-start; /* Выравниваем по верхнему краю */
     min-height: 100vh;
+    background: transparent;
 }
 
 .news-container {
@@ -16,6 +17,7 @@ body {
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+    margin-top: 20px; /* Добавляем отступ от верха */
 }
 
 h1 {
@@ -54,5 +56,5 @@ h1 {
     text-align: center;
     margin-top: 20px;
     color: #ccc;
-    display: none; /* Скрываем индикатор загрузки */
+    display: none;
 }
