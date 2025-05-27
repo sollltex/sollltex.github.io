@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexarisAI - Ваш ИИ-помощник для Discord</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Определение пользовательского шрифта Neue-Bold */
+        @font-face {
+            font-family: 'Neue-Bold';
+            /* ВНИМАНИЕ: Вам нужно указать реальный путь к файлу шрифта Neue-Bold */
+            /* Пример: src: url('/fonts/neue-bold.woff2') format('woff2'); */
+            src: local('Neue-Bold'), url('path/to/your/neue-bold.woff2') format('woff2'); /* Замените 'path/to/your/neue-bold.woff2' на реальный путь */
+            font-weight: 700; /* Предполагаемый вес шрифта для Neue-Bold */
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-button {
+            background-image: linear-gradient(to right, #6366f1, #8b5cf6, #d946ef);
+            transition: all 0.3s ease;
+        }
+        .gradient-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.6);
+        }
+        .section-heading {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 8px;
+        }
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-image: linear-gradient(to right, #6366f1, #d946ef);
+            border-radius: 2px;
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-100 min-h-screen flex flex-col items-center justify-center p-4">
+    <div class="bg-gray-900 rounded-xl shadow-2xl p-6 md:p-10 lg:p-12 max-w-6xl w-full text-center border border-gray-800">
+
+        <nav class="mb-12 flex flex-wrap justify-center md:justify-between items-center py-4 px-6 bg-gray-800 rounded-lg shadow-md">
+            <div class="text-2xl font-extrabold text-white mb-4 md:mb-0">NexarisAI</div>
+            <ul class="flex flex-wrap justify-center space-x-4 sm:space-x-6 md:space-x-8 text-lg">
+                <li><a href="#home" class="text-gray-300 hover:text-purple-400 transition duration-200">Главная</a></li>
+                <li><a href="#features" class="text-gray-300 hover:text-purple-400 transition duration-200">Особенности</a></li>
+                <li><a href="#why-choose" class="text-gray-300 hover:text-purple-400 transition duration-200">Почему мы?</a></li>
+                <li><a href="tos.html" class="text-gray-300 hover:text-purple-400 transition duration-200">Условия</a></li>
+                <li><a href="privacy-policy.html" class="text-gray-300 hover:text-purple-400 transition duration-200">Конфиденциальность</a></li>
+                <li>
+                    <a href="https://discord.com/oauth2/authorize?client_id=YOUR_BOT_CLIENT_ID&scope=bot&permissions=8"
+                       target="_blank"
+                       class="text-purple-400 hover:text-purple-300 font-semibold transition duration-200">
+                        Добавить бота
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <section id="home" class="mb-16 py-10">
+            <h1 class="font-[Neue-Bold] text-neutral-50 text-4xl lg:text-5xl mb-6 leading-tight">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">NexarisAI:</span> Ваш ИИ-помощник для Discord
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 leading-relaxed mb-10 max-w-3xl mx-auto">
+                Откройте для себя мощь искусственного интеллекта, интегрированного прямо в ваш Discord-сервер.
+                NexarisAI — это не просто бот, это ваш умный партнер для продуктивности и развлечений.
+            </p>
+            <a href="https://discord.com/oauth2/authorize?client_id=YOUR_BOT_CLIENT_ID&scope=bot&permissions=8"
+               target="_blank"
+               class="inline-block gradient-button text-white font-bold py-4 px-10 rounded-full text-xl shadow-lg hover:shadow-xl transition duration-300 ease-in-out">
+                Добавить NexarisAI на сервер
+            </a>
+            <p class="text-gray-400 text-sm mt-4">
+                (Замените YOUR_BOT_CLIENT_ID на фактический ID вашего бота)
+            </p>
+        </section>
+
+        <section id="features" class="mb-16 py-10">
+            <h2 class="text-4xl font-bold text-white mb-12 section-heading">Что может NexarisAI?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-800 p-8 rounded-lg shadow-lg transition duration-300 ease-in-out card-hover-effect border border-gray-700">
+                    <h3 class="text-2xl font-semibold text-white mb-4 flex items-center justify-center">
+                        <span class="mr-2 text-purple-400">&#9997;</span> Помощь в программировании
+                    </h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Получайте мгновенные ответы на вопросы по C++, JavaScript, HTML, CSS, Python и многим другим языкам.
+                        Отладка кода, объяснение сложных концепций и лучшие практики — всё это в вашем Discord.
+                    </p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-lg shadow-lg transition duration-300 ease-in-out card-hover-effect border border-gray-700">
+                    <h3 class="text-2xl font-semibold text-white mb-4 flex items-center justify-center">
+                        <span class="mr-2 text-purple-400">&#128218;</span> Обширные знания
+                    </h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Спрашивайте о чем угодно! От исторических фактов до последних научных открытий,
+                        NexarisAI предоставит вам точную и актуальную информацию из широкого спектра областей.
+                    </p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-lg shadow-lg transition duration-300 ease-in-out card-hover-effect border border-gray-700">
+                    <h3 class="text-2xl font-semibold text-white mb-4 flex items-center justify-center">
+                        <span class="mr-2 text-purple-400">&#128172;</span> Увлекательные диалоги
+                    </h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Общайтесь с ИИ на любые темы. NexarisAI способен поддерживать связные, интересные и
+                        глубокие беседы, делая ваше общение более динамичным.
+                    </p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-lg shadow-lg transition duration-300 ease-in-out card-hover-effect border border-gray-700">
+                    <h3 class="text-2xl font-semibold text-white mb-4 flex items-center justify-center">
+                        <span class="mr-2 text-purple-400">&#127918;</span> Развлекательные функции
+                    </h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Добавьте веселья на ваш сервер с помощью различных развлекательных функций:
+                        от интерактивных игр до генерации случайных фактов и шуток.
+                    </p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-lg shadow-lg transition duration-300 ease-in-out card-hover-effect border border-gray-700">
+                    <h3 class="text-2xl font-semibold text-white mb-4 flex items-center justify-center">
+                        <span class="mr-2 text-purple-400">&#128269;</span> Интеллектуальный веб-поиск
+                    </h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Получайте актуальную информацию из интернета, не покидая Discord.
+                        NexarisAI может выполнять быстрый и точный веб-поиск по вашим запросам.
+                    </p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-lg shadow-lg transition duration-300 ease-in-out card-hover-effect border border-gray-700">
+                    <h3 class="text-2xl font-semibold text-white mb-4 flex items-center justify-center">
+                        <span class="mr-2 text-purple-400">&#128640;</span> Постоянное развитие
+                    </h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        NexarisAI постоянно обучается и совершенствуется благодаря новым данным и отзывам пользователей,
+                        чтобы предоставлять вам самый лучший и актуальный опыт.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-choose" class="mb-16 py-10">
+            <h2 class="text-4xl font-bold text-white mb-12 section-heading">Почему выбирают NexarisAI?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                <div class="bg-gray-800 p-8 rounded-lg shadow-lg transition duration-300 ease-in-out card-hover-effect border border-gray-700">
+                    <h3 class="text-2xl font-semibold text-white mb-4 flex items-center">
+                        <span class="mr-3 text-purple-400">&#10003;</span> Простота использования
+                    </h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Интуитивно понятные команды и простой процесс добавления на сервер.
+                        Начните использовать NexarisAI всего за несколько кликов.
+                    </p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-lg shadow-lg transition duration-300 ease-in-out card-hover-effect border border-gray-700">
+                    <h3 class="text-2xl font-semibold text-white mb-4 flex items-center">
+                        <span class="mr-3 text-purple-400">&#10003;</span> Высокая производительность
+                    </h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Наш бот разработан для быстрой и эффективной работы, обеспечивая
+                        мгновенные ответы и бесперебойное взаимодействие.
+                    </p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-lg shadow-lg transition duration-300 ease-in-out card-hover-effect border border-gray-700">
+                    <h3 class="text-2xl font-semibold text-white mb-4 flex items-center">
+                        <span class="mr-3 text-purple-400">&#10003;</span> Безопасность и конфиденциальность
+                    </h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Мы серьезно относимся к вашей конфиденциальности. NexarisAI разработан с учетом
+                        принципов минимального сбора данных и их надежной защиты.
+                    </p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-lg shadow-lg transition duration-300 ease-in-out card-hover-effect border border-gray-700">
+                    <h3 class="text-2xl font-semibold text-white mb-4 flex items-center">
+                        <span class="mr-3 text-purple-400">&#10003;</span> Активная поддержка
+                    </h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Наша команда всегда готова помочь вам. Присоединяйтесь к нашему серверу поддержки Discord
+                        для получения помощи и общения с сообществом.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16 py-10">
+            <h2 class="text-4xl font-bold text-white mb-12 section-heading">Что говорят наши пользователи?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg transition duration-300 ease-in-out card-hover-effect border border-gray-700">
+                    <p class="text-gray-300 italic mb-4">"NexarisAI полностью изменил наш сервер! Помощь в кодировании просто бесценна."</p>
+                    <p class="text-white font-semibold">- Пользователь Discord #1</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg transition duration-300 ease-in-out card-hover-effect border border-gray-700">
+                    <p class="text-gray-300 italic mb-4">"Удивительный бот для получения быстрых ответов на любые вопросы. Очень рекомендую!"</p>
+                    <p class="text-white font-semibold">- Пользователь Discord #2</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg transition duration-300 ease-in-out card-hover-effect border border-gray-700">
+                    <p class="text-gray-300 italic mb-4">"Диалоги с NexarisAI всегда интересны и познавательны. Отличная работа!"</p>
+                    <p class="text-white font-semibold">- Пользователь Discord #3</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16 py-10 text-left">
+            <h2 class="text-4xl font-bold text-white mb-12 text-center section-heading">Часто задаваемые вопросы</h2>
+            <div class="space-y-6 max-w-3xl mx-auto">
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700">
+                    <h3 class="text-xl font-semibold text-white mb-2">Как добавить NexarisAI на мой сервер?</h3>
+                    <p class="text-gray-300">
+                        Нажмите на кнопку "Добавить NexarisAI на сервер" на этой странице. Вы будете перенаправлены на страницу авторизации Discord,
+                        где сможете выбрать сервер и предоставить необходимые разрешения.
+                    </p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700">
+                    <h3 class="text-xl font-semibold text-white mb-2">Какие разрешения требуются боту?</h3>
+                    <p class="text-gray-300">
+                        Для полноценной работы боту требуются базовые разрешения для чтения и отправки сообщений в каналах.
+                        Рекомендуется предоставить ему разрешение на "Отправлять сообщения" и "Читать историю сообщений".
+                    </p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700">
+                    <h3 class="text-xl font-semibold text-white mb-2">Безопасен ли NexarisAI для моего сервера?</h3>
+                    <p class="text-gray-300">
+                        Да, NexarisAI разработан с учетом безопасности и конфиденциальности. Мы не собираем личную идентифицируемую информацию,
+                        и все взаимодействия обрабатываются с максимальной осторожностью. Подробности см. в нашей Политике конфиденциальности.
+                    </p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700">
+                    <h3 class="text-xl font-semibold text-white mb-2">Как я могу получить поддержку?</h3>
+                    <p class="text-gray-300">
+                        Если у вас возникнут вопросы или проблемы, вы можете связаться с нами через Discord (Sollltex / @dm4o)
+                        или присоединиться к нашему официальному серверу поддержки (если таковой имеется).
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="mb-12 py-10">
+            <h2 class="text-4xl font-bold text-white mb-8 section-heading">Готовы улучшить свой Discord-сервер?</h2>
+            <a href="https://discord.com/oauth2/authorize?client_id=YOUR_BOT_CLIENT_ID&scope=bot&permissions=8"
+               target="_blank"
+               class="inline-block gradient-button text-white font-bold py-4 px-10 rounded-full text-xl shadow-lg hover:shadow-xl transition duration-300 ease-in-out">
+                Добавить NexarisAI сейчас!
+            </a>
+        </section>
+
+        <footer class="text-gray-500 text-sm mt-12 pt-8 border-t border-gray-700">
+            <p>&copy; 2025 Sollltex / Nexaris Team. Все права защищены.</p>
+            <p class="mt-2">
+                <a href="tos.html" class="text-indigo-400 hover:text-indigo-300 mx-2">Условия использования</a> |
+                <a href="privacy-policy.html" class="text-indigo-400 hover:text-indigo-300 mx-2">Политика конфиденциальности</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
