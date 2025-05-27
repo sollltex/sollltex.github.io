@@ -13,12 +13,12 @@
             font-family: 'Bebas Neue', sans-serif;
         }
         .gradient-button {
-            background-image: linear-gradient(to right, #6366f1, #8b5cf6, #d946ef);
+            background-image: linear-gradient(to right, #3b82f6, #0ea5e9, #06b6d4); /* Сине-голубой градиент */
             transition: all 0.3s ease;
         }
         .gradient-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.6);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6); /* Синяя тень */
         }
         .section-heading {
             position: relative;
@@ -33,12 +33,60 @@
             transform: translateX(-50%);
             width: 60px;
             height: 3px;
-            background-image: linear-gradient(to right, #6366f1, #d946ef);
+            background-image: linear-gradient(to right, #3b82f6, #06b6d4); /* Сине-голубой градиент */
             border-radius: 2px;
         }
         .card-hover-effect:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+        /* Discord-like styling */
+        .discord-message-container {
+            background-color: #2c2f33; /* Темно-серый фон как в Discord */
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+        .discord-message-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        .discord-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #5865f2; /* Синий цвет Discord */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+        }
+        .discord-username {
+            font-weight: 600;
+            color: #ffffff;
+            margin-right: 0.5rem;
+        }
+        .discord-role {
+            font-size: 0.75rem;
+            background-color: #4f545c; /* Темно-серый для роли */
+            color: #b9bbbe;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+        }
+        .discord-timestamp {
+            font-size: 0.75rem;
+            color: #72767d;
+        }
+        .discord-message-content {
+            color: #dcddde;
+            line-height: 1.5;
         }
     </style>
 </head>
@@ -48,15 +96,15 @@
         <nav class="mb-12 flex flex-wrap justify-center md:justify-between items-center py-4 px-6 bg-gray-800 rounded-lg shadow-md">
             <div class="text-2xl font-extrabold text-white mb-4 md:mb-0">NexarisAI</div>
             <ul class="flex flex-wrap justify-center space-x-4 sm:space-x-6 md:space-x-8 text-lg">
-                <li><a href="#home" class="text-gray-300 hover:text-purple-400 transition duration-200">Главная</a></li>
-                <li><a href="#features" class="text-gray-300 hover:text-purple-400 transition duration-200">Особенности</a></li>
-                <li><a href="#why-choose" class="text-gray-300 hover:text-purple-400 transition duration-200">Почему мы?</a></li>
-                <li><a href="tos.html" class="text-gray-300 hover:text-purple-400 transition duration-200">Условия</a></li>
-                <li><a href="privacy-policy.html" class="text-gray-300 hover:text-purple-400 transition duration-200">Конфиденциальность</a></li>
+                <li><a href="#home" class="text-gray-300 hover:text-blue-400 transition duration-200">Главная</a></li>
+                <li><a href="#features" class="text-gray-300 hover:text-blue-400 transition duration-200">Особенности</a></li>
+                <li><a href="#why-choose" class="text-gray-300 hover:text-blue-400 transition duration-200">Почему мы?</a></li>
+                <li><a href="tos.html" class="text-gray-300 hover:text-blue-400 transition duration-200">Условия</a></li>
+                <li><a href="privacy-policy.html" class="text-gray-300 hover:text-blue-400 transition duration-200">Конфиденциальность</a></li>
                 <li>
                     <a href="https://discord.com/oauth2/authorize?client_id=1376508089423106090&permissions=8&integration_type=0&scope=bot"
                        target="_blank"
-                       class="text-purple-400 hover:text-purple-300 font-semibold transition duration-200">
+                       class="text-blue-400 hover:text-blue-300 font-semibold transition duration-200">
                         Добавить бота
                     </a>
                 </li>
@@ -65,7 +113,7 @@
 
         <section id="home" class="mb-16 py-10">
             <h1 class="text-neutral-50 text-4xl lg:text-5xl mb-6 leading-tight">
-                <span class="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">NexarisAI:</span> Ваш ИИ-помощник для Discord
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-500">NexarisAI:</span> Ваш ИИ-помощник для Discord
             </h1>
             <p class="text-xl md:text-2xl text-gray-300 leading-relaxed mb-10 max-w-3xl mx-auto">
                 Откройте для себя мощь искусственного интеллекта, интегрированного прямо в ваш Discord-сервер.
@@ -86,7 +134,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="bg-gray-800 p-8 rounded-lg shadow-lg transition duration-300 ease-in-out card-hover-effect border border-gray-700">
                     <h3 class="text-2xl font-semibold text-white mb-4 flex items-center justify-center">
-                        <span class="mr-2 text-purple-400">&#9997;</span> Помощь в программировании
+                        <span class="mr-2 text-blue-400">&#9997;</span> Помощь в программировании
                     </h3>
                     <p class="text-gray-300 leading-relaxed">
                         Получайте мгновенные ответы на вопросы по C++, JavaScript, HTML, CSS, Python и многим другим языкам.
@@ -95,7 +143,7 @@
                 </div>
                 <div class="bg-gray-800 p-8 rounded-lg shadow-lg transition duration-300 ease-in-out card-hover-effect border border-gray-700">
                     <h3 class="text-2xl font-semibold text-white mb-4 flex items-center justify-center">
-                        <span class="mr-2 text-purple-400">&#128218;</span> Обширные знания
+                        <span class="mr-2 text-blue-400">&#128218;</span> Обширные знания
                     </h3>
                     <p class="text-gray-300 leading-relaxed">
                         Спрашивайте о чем угодно! От исторических фактов до последних научных открытий,
@@ -104,7 +152,7 @@
                 </div>
                 <div class="bg-gray-800 p-8 rounded-lg shadow-lg transition duration-300 ease-in-out card-hover-effect border border-gray-700">
                     <h3 class="text-2xl font-semibold text-white mb-4 flex items-center justify-center">
-                        <span class="mr-2 text-purple-400">&#128172;</span> Увлекательные диалоги
+                        <span class="mr-2 text-blue-400">&#128172;</span> Увлекательные диалоги
                     </h3>
                     <p class="text-gray-300 leading-relaxed">
                         Общайтесь с ИИ на любые темы. NexarisAI способен поддерживать связные, интересные и
@@ -113,7 +161,7 @@
                 </div>
                 <div class="bg-gray-800 p-8 rounded-lg shadow-lg transition duration-300 ease-in-out card-hover-effect border border-gray-700">
                     <h3 class="text-2xl font-semibold text-white mb-4 flex items-center justify-center">
-                        <span class="mr-2 text-purple-400">&#127918;</span> Развлекательные функции
+                        <span class="mr-2 text-blue-400">&#127918;</span> Развлекательные функции
                     </h3>
                     <p class="text-gray-300 leading-relaxed">
                         Добавьте веселья на ваш сервер с помощью различных развлекательных функций:
@@ -122,7 +170,7 @@
                 </div>
                 <div class="bg-gray-800 p-8 rounded-lg shadow-lg transition duration-300 ease-in-out card-hover-effect border border-gray-700">
                     <h3 class="text-2xl font-semibold text-white mb-4 flex items-center justify-center">
-                        <span class="mr-2 text-purple-400">&#128269;</span> Интеллектуальный веб-поиск
+                        <span class="mr-2 text-blue-400">&#128269;</span> Интеллектуальный веб-поиск
                     </h3>
                     <p class="text-gray-300 leading-relaxed">
                         Получайте актуальную информацию из интернета, не покидая Discord.
@@ -131,7 +179,7 @@
                 </div>
                 <div class="bg-gray-800 p-8 rounded-lg shadow-lg transition duration-300 ease-in-out card-hover-effect border border-gray-700">
                     <h3 class="text-2xl font-semibold text-white mb-4 flex items-center justify-center">
-                        <span class="mr-2 text-purple-400">&#128640;</span> Постоянное развитие
+                        <span class="mr-2 text-blue-400">&#128640;</span> Постоянное развитие
                     </h3>
                     <p class="text-gray-300 leading-relaxed">
                         NexarisAI постоянно обучается и совершенствуется благодаря новым данным и отзывам пользователей,
@@ -146,7 +194,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
                 <div class="bg-gray-800 p-8 rounded-lg shadow-lg transition duration-300 ease-in-out card-hover-effect border border-gray-700">
                     <h3 class="text-2xl font-semibold text-white mb-4 flex items-center">
-                        <span class="mr-3 text-purple-400">&#10003;</span> Простота использования
+                        <span class="mr-3 text-blue-400">&#10003;</span> Простота использования
                     </h3>
                     <p class="text-gray-300 leading-relaxed">
                         Интуитивно понятные команды и простой процесс добавления на сервер.
@@ -155,7 +203,7 @@
                 </div>
                 <div class="bg-gray-800 p-8 rounded-lg shadow-lg transition duration-300 ease-in-out card-hover-effect border border-gray-700">
                     <h3 class="text-2xl font-semibold text-white mb-4 flex items-center">
-                        <span class="mr-3 text-purple-400">&#10003;</span> Высокая производительность
+                        <span class="mr-3 text-blue-400">&#10003;</span> Высокая производительность
                     </h3>
                     <p class="text-gray-300 leading-relaxed">
                         Наш бот разработан для быстрой и эффективной работы, обеспечивая
@@ -164,7 +212,7 @@
                 </div>
                 <div class="bg-gray-800 p-8 rounded-lg shadow-lg transition duration-300 ease-in-out card-hover-effect border border-gray-700">
                     <h3 class="text-2xl font-semibold text-white mb-4 flex items-center">
-                        <span class="mr-3 text-purple-400">&#10003;</span> Безопасность и конфиденциальность
+                        <span class="mr-3 text-blue-400">&#10003;</span> Безопасность и конфиденциальность
                     </h3>
                     <p class="text-gray-300 leading-relaxed">
                         Мы серьезно относимся к вашей конфиденциальности. NexarisAI разработан с учетом
@@ -173,12 +221,41 @@
                 </div>
                 <div class="bg-gray-800 p-8 rounded-lg shadow-lg transition duration-300 ease-in-out card-hover-effect border border-gray-700">
                     <h3 class="text-2xl font-semibold text-white mb-4 flex items-center">
-                        <span class="mr-3 text-purple-400">&#10003;</span> Активная поддержка
+                        <span class="mr-3 text-blue-400">&#10003;</span> Активная поддержка
                     </h3>
                     <p class="text-gray-300 leading-relaxed">
                         Наша команда всегда готова помочь вам. Присоединяйтесь к нашему серверу поддержки Discord
                         для получения помощи и общения с сообществом.
                     </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16 py-10">
+            <h2 class="text-4xl font-bold text-white mb-12 section-heading">Пример взаимодействия в Discord</h2>
+            <div class="max-w-2xl mx-auto discord-message-container">
+                <div class="discord-message-header">
+                    <div class="discord-avatar" style="background-color: #5865f2;">S</div>
+                    <span class="discord-username">Sollltex</span>
+                    <span class="discord-role">CODE</span>
+                    <span class="discord-timestamp">11:54</span>
+                </div>
+                <div class="discord-message-content">
+                    там гемини моделька стоит
+                </div>
+
+                <div class="discord-message-header mt-6">
+                    <div class="discord-avatar" style="background-color: #7289da;">N</div>
+                    <span class="discord-username" style="color: #7289da;">Nexaris</span>
+                    <span class="discord-role">AI БОТ</span>
+                    <span class="discord-timestamp">11:54</span>
+                </div>
+                <div class="discord-message-content">
+                    Ах, ты заметил! 😄 Да, ты прав, в основе моего интеллекта лежит мощная модель Gemini. Она помогает мне разбираться в твоих вопросах и генерировать ответы.
+                    <br><br>
+                    Кстати, раз уж затронули эту тему: мой разработчик Sollltex @dm4o. Я АІ, разработанный командой Nexaris. 😊
+                    <br><br>
+                    Чем еще могу помочь сегодня? Может, хочешь углубиться в какую-нибудь тему или попробовать что-то новенькое? Я
                 </div>
             </div>
         </section>
@@ -247,11 +324,3 @@
 
         <footer class="text-gray-500 text-sm mt-12 pt-8 border-t border-gray-700">
             <p>&copy; 2025 Sollltex / Nexaris Team. Все права защищены.</p>
-            <p class="mt-2">
-                <a href="tos.html" class="text-indigo-400 hover:text-indigo-300 mx-2">Условия использования</a> |
-                <a href="privacy-policy.html" class="text-indigo-400 hover:text-indigo-300 mx-2">Политика конфиденциальности</a>
-            </p>
-        </footer>
-    </div>
-</body>
-</html>
