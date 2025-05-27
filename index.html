@@ -6,19 +6,14 @@
     <title>NexarisAI - Ваш ИИ-помощник для Discord</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
     <style>
-        /* Определение пользовательского шрифта Neue-Bold */
-        @font-face {
-            font-family: 'Neue-Bold';
-            /* ВНИМАНИЕ: Вам нужно указать реальный путь к файлу шрифта Neue-Bold */
-            /* Пример: src: url('/fonts/neue-bold.woff2') format('woff2'); */
-            src: local('Neue-Bold'), url('bebas') format('ttf'); /* Замените 'path/to/your/neue-bold.woff2' на реальный путь */
-            font-weight: 700; /* Предполагаемый вес шрифта для Neue-Bold */
-            font-style: normal;
-        }
-
         body {
             font-family: 'Inter', sans-serif;
+        }
+        /* Применение Bebas Neue к заголовку, если требуется */
+        .font-bebas-neue {
+            font-family: 'Bebas Neue', sans-serif;
         }
         .gradient-button {
             background-image: linear-gradient(to right, #6366f1, #8b5cf6, #d946ef);
@@ -72,7 +67,7 @@
         </nav>
 
         <section id="home" class="mb-16 py-10">
-            <h1 class="font-[Neue-Bold] text-neutral-50 text-4xl lg:text-5xl mb-6 leading-tight">
+            <h1 class="font-bebas-neue text-neutral-50 text-4xl lg:text-5xl mb-6 leading-tight">
                 <span class="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">NexarisAI:</span> Ваш ИИ-помощник для Discord
             </h1>
             <p class="text-xl md:text-2xl text-gray-300 leading-relaxed mb-10 max-w-3xl mx-auto">
@@ -255,11 +250,3 @@
 
         <footer class="text-gray-500 text-sm mt-12 pt-8 border-t border-gray-700">
             <p>&copy; 2025 Sollltex / Nexaris Team. Все права защищены.</p>
-            <p class="mt-2">
-                <a href="tos.html" class="text-indigo-400 hover:text-indigo-300 mx-2">Условия использования</a> |
-                <a href="privacy-policy.html" class="text-indigo-400 hover:text-indigo-300 mx-2">Политика конфиденциальности</a>
-            </p>
-        </footer>
-    </div>
-</body>
-</html>
