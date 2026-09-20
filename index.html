@@ -7,6 +7,10 @@
     <title>FearProject — Подключение</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             min-height: 100vh;
@@ -15,54 +19,733 @@
             align-items: center;
             justify-content: center;
 
-            background: #080A0D;
-            color: #F1F0EC;
+            background: #08080a;
+            color: #ffffff;
 
-            font-family: Arial, sans-serif;
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Arial,
+                sans-serif;
         }
 
-        .box {
-            text-align: center;
+        .card {
+            width: min(460px, calc(100% - 32px));
+            padding: 30px;
+
+            background: #16171a;
+            border: 1px solid #24252a;
+            border-radius: 20px;
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.45);
+        }
+
+        .top {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            margin-bottom: 24px;
+        }
+
+        .logo {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background: #24262b;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .brand {
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .sub {
+            margin-top: 3px;
+            color: #777980;
+            font-size: 13px;
         }
 
         h1 {
-            margin-bottom: 10px;
+            margin: 0 0 8px;
+
+            font-size: 25px;
+            line-height: 1.2;
         }
 
-        p {
-            color: #A0A5AB;
+        .description {
+            margin: 0 0 22px;
+
+            color: #d8d8dc;
+            font-size: 14px;
+            line-height: 1.5;
         }
 
-        a {
-            color: #D46A3A;
+        .server {
+            padding: 16px;
+
+            background: #101114;
+            border: 1px solid #24252a;
+            border-radius: 15px;
+
+            margin-bottom: 18px;
+        }
+
+        .server-name {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .server-ip {
+            color: #85868d;
+            font-family: Consolas, monospace;
+            font-size: 13px;
+            margin-bottom: 13px;
+        }
+
+        .stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .tag {
+            padding: 6px 9px;
+
+            background: #1c1e22;
+            border-radius: 8px;
+
+            color: #bfc0c5;
+            font-size: 12px;
+        }
+
+        .status {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+
+            margin: 18px 0;
+
+            color: #d8d8dc;
+            font-size: 14px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+            background: #d8d8dc;
+
+            flex-shrink: 0;
+        }
+
+        .dot.loading {
+            animation: pulse 1s infinite;
+        }
+
+        .dot.success {
+            background: #72d572;
+        }
+
+        .dot.error {
+            background: #d86a6a;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: .3;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        button {
+            width: 100%;
+            height: 48px;
+
+            border: 0;
+            border-radius: 13px;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition:
+                transform .15s ease,
+                opacity .15s ease,
+                background .15s ease;
+        }
+
+        button:hover {
+            transform: translateY(-1px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .primary {
+            background: #e2e2e6;
+            color: #121214;
+        }
+
+        .secondary {
+            background: #24262b;
+            color: #ffffff;
+        }
+
+        button:disabled {
+            opacity: .45;
+            cursor: default;
+            transform: none;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #6d6e74;
+            font-size: 12px;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #ffffff;
+        }
+
+        .error {
+            color: #d8a0a0;
         }
     </style>
 </head>
 
 <body>
 
-<div class="box">
-    <h1>FearProject</h1>
-    <p id="status">Открываем Steam...</p>
+<div class="card">
+
+    <div class="top">
+        <div class="logo">F</div>
+
+        <div>
+            <div class="brand">FearProject</div>
+            <div class="sub">Подключение к серверу</div>
+        </div>
+    </div>
+
+    <h1 id="title">Подготовка подключения</h1>
+
+    <p class="description" id="description">
+        Получаем информацию о сервере...
+    </p>
+
+    <div class="server hidden" id="serverBox">
+
+        <div class="server-name" id="serverName">
+            Сервер
+        </div>
+
+        <div class="server-ip" id="serverIp">
+            -
+        </div>
+
+        <div class="stats">
+
+            <div class="tag" id="players">
+                Онлайн: —
+            </div>
+
+            <div class="tag" id="map">
+                Карта: —
+            </div>
+
+            <div class="tag" id="location">
+                Регион: —
+            </div>
+
+            <div class="tag" id="type">
+                —
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="status" id="statusBox">
+
+        <div class="dot loading" id="statusDot"></div>
+
+        <span id="status">
+            Загружаем данные...
+        </span>
+
+    </div>
+
+    <div class="buttons">
+
+        <button
+            class="primary"
+            id="actionButton"
+            disabled
+        >
+            Подготовка...
+        </button>
+
+        <button
+            class="secondary hidden"
+            id="copyButton"
+        >
+            Скопировать IP
+        </button>
+
+    </div>
+
+    <div class="footer">
+        <a
+            href="https://t.me/gigafight"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            by Entropy
+        </a>
+    </div>
+
 </div>
 
 <script>
-    const params = new URLSearchParams(window.location.search);
-    const server = params.get("server");
+
+const params = new URLSearchParams(window.location.search);
+
+const serverParam = params.get("server");
+
+const title = document.getElementById("title");
+const description = document.getElementById("description");
+
+const serverBox = document.getElementById("serverBox");
+const serverName = document.getElementById("serverName");
+const serverIp = document.getElementById("serverIp");
+
+const players = document.getElementById("players");
+const map = document.getElementById("map");
+const locationEl = document.getElementById("location");
+const type = document.getElementById("type");
+
+const status = document.getElementById("status");
+const statusDot = document.getElementById("statusDot");
+
+const actionButton = document.getElementById("actionButton");
+const copyButton = document.getElementById("copyButton");
+
+
+let server = null;
+let steamUrl = null;
+
+let autoTimer = null;
+let cancelled = false;
+let launched = false;
+
+
+/*
+    Нормализуем адрес.
+
+    Например:
+
+    85.119.149.157:27057
+
+    становится:
+
+    85.119.149.157:27057
+*/
+
+function normalizeServer(value) {
+
+    if (!value) {
+        return null;
+    }
+
+    return value
+        .trim()
+        .replace(/^steam:\/\/connect\//i, "")
+        .replace(/^https?:\/\//i, "")
+        .replace(/\/.*$/, "");
+}
+
+
+/*
+    Безопасно ставим текст.
+*/
+
+function setText(element, value) {
+    element.textContent = value ?? "—";
+}
+
+
+/*
+    Ошибка.
+*/
+
+function showError(message) {
+
+    statusDot.classList.remove("loading");
+    statusDot.classList.add("error");
+
+    setText(status, message);
+
+    actionButton.disabled = false;
+    actionButton.textContent = "Открыть вручную";
+
+    actionButton.className = "primary";
+
+    copyButton.classList.remove("hidden");
+}
+
+
+/*
+    Запускаем Steam.
+*/
+
+function openSteam() {
+
+    if (!steamUrl) {
+        return;
+    }
+
+    launched = true;
+
+    statusDot.classList.remove("loading");
+    statusDot.classList.add("success");
+
+    setText(status, "Открываем Steam...");
+
+    window.location.href = steamUrl;
+
+    setTimeout(() => {
+
+        if (launched) {
+
+            setText(
+                status,
+                "Если Steam не открылся, нажмите кнопку ниже."
+            );
+
+            actionButton.textContent = "Открыть вручную";
+            actionButton.disabled = false;
+
+        }
+
+    }, 1800);
+}
+
+
+/*
+    Отмена автоматического запуска.
+*/
+
+function cancelAutoOpen() {
+
+    cancelled = true;
+
+    if (autoTimer) {
+        clearTimeout(autoTimer);
+        autoTimer = null;
+    }
+
+    setText(status, "Автоматическое открытие отменено.");
+
+    actionButton.textContent = "Открыть вручную";
+    actionButton.disabled = false;
+
+    copyButton.classList.remove("hidden");
+}
+
+
+/*
+    Кнопка действия.
+*/
+
+actionButton.addEventListener("click", () => {
+
+    if (!steamUrl) {
+        return;
+    }
+
+    if (!cancelled && !launched) {
+        cancelAutoOpen();
+        return;
+    }
+
+    openSteam();
+});
+
+
+/*
+    Копирование IP.
+*/
+
+copyButton.addEventListener("click", async () => {
 
     if (!server) {
-        document.getElementById("status").textContent =
-            "Сервер не указан.";
-    } else {
-        const steamUrl = `steam://connect/${server}`;
+        return;
+    }
 
-        window.location.href = steamUrl;
+    try {
+
+        await navigator.clipboard.writeText(server);
+
+        const oldText = copyButton.textContent;
+
+        copyButton.textContent = "Скопировано";
 
         setTimeout(() => {
-            document.getElementById("status").innerHTML =
-                `Если Steam не открылся, <a href="${steamUrl}">нажмите сюда</a>.`;
+            copyButton.textContent = oldText;
         }, 1500);
+
+    } catch {
+
+        alert("Не удалось скопировать IP.");
     }
+
+});
+
+
+/*
+    Получение данных из servers.json.
+
+    Это НЕ Fear API.
+
+    Файл лежит рядом с этим HTML,
+    поэтому CORS здесь отсутствует.
+*/
+
+async function loadServer() {
+
+    server = normalizeServer(serverParam);
+
+    if (!server) {
+
+        title.textContent = "Сервер не указан";
+
+        description.textContent =
+            "В ссылке отсутствует адрес сервера.";
+
+        statusDot.classList.remove("loading");
+
+        showError("Нет параметра server.");
+
+        return;
+    }
+
+    steamUrl = `steam://connect/${server}`;
+
+    setText(serverIp, server);
+
+    copyButton.classList.remove("hidden");
+
+    try {
+
+        const response = await fetch("./servers.json", {
+            cache: "no-store"
+        });
+
+        if (!response.ok) {
+            throw new Error("servers.json недоступен");
+        }
+
+        const servers = await response.json();
+
+        const found = servers.find(item => {
+
+            if (!item) {
+                return false;
+            }
+
+            return `${item.ip}:${item.port}` === server;
+        });
+
+
+        if (found) {
+
+            serverBox.classList.remove("hidden");
+
+            setText(
+                serverName,
+                found.site_name || "FearProject"
+            );
+
+            setText(
+                serverIp,
+                `${found.ip}:${found.port}`
+            );
+
+            const live = found.live_data || {};
+
+            setText(
+                players,
+                `Онлайн: ${
+                    live.current_players ?? "—"
+                } / ${
+                    live.max_players ?? "—"
+                }`
+            );
+
+            setText(
+                map,
+                `Карта: ${
+                    live.map_name || "—"
+                }`
+            );
+
+            setText(
+                locationEl,
+                `Регион: ${
+                    found.location || "—"
+                }`
+            );
+
+            setText(
+                type,
+                found.type || "—"
+            );
+
+            title.textContent =
+                "Подключение к серверу";
+
+            description.textContent =
+                "Сейчас откроем Counter-Strike 2 через Steam.";
+
+        } else {
+
+            title.textContent =
+                "Сервер найден";
+
+            description.textContent =
+                "Информация о сервере пока отсутствует в локальной базе.";
+
+            serverBox.classList.remove("hidden");
+
+            setText(
+                serverName,
+                "Неизвестный сервер"
+            );
+
+            setText(
+                players,
+                "Онлайн: —"
+            );
+
+            setText(
+                map,
+                "Карта: —"
+            );
+
+            setText(
+                locationEl,
+                "Регион: —"
+            );
+
+            setText(
+                type,
+                "—"
+            );
+        }
+
+
+        /*
+            Небольшая задержка перед автоматическим
+            открытием, чтобы пользователь мог нажать
+            "Отмена".
+        */
+
+        setText(
+            status,
+            "Автоматическое открытие через 2 секунды..."
+        );
+
+        actionButton.disabled = false;
+        actionButton.textContent = "Отмена";
+
+        autoTimer = setTimeout(() => {
+
+            if (!cancelled && !launched) {
+                openSteam();
+            }
+
+        }, 2000);
+
+
+    } catch (error) {
+
+        console.error("servers.json error:", error);
+
+        title.textContent =
+            "Подключение к серверу";
+
+        description.textContent =
+            "Не удалось загрузить информацию о сервере, но подключиться всё равно можно.";
+
+        showError(
+            "Информация о сервере недоступна."
+        );
+
+        serverBox.classList.remove("hidden");
+
+        setText(
+            serverName,
+            "FearProject"
+        );
+
+        setText(
+            players,
+            "Онлайн: —"
+        );
+
+        setText(
+            map,
+            "Карта: —"
+        );
+
+        setText(
+            locationEl,
+            "Регион: —"
+        );
+
+        setText(
+            type,
+            "—"
+        );
+    }
+}
+
+
+loadServer();
+
 </script>
 
 </body>
